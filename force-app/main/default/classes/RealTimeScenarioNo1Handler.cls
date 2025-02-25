@@ -1,3 +1,10 @@
+/**
+ * @description       : 
+ * @author            : Shantanu Rajurkar
+ * @group             : 
+ * @last modified on  : 02-25-2025
+ * @last modified by  : Shantanu Rajurkar
+**/
 public class RealTimeScenarioNo1Handler {
 	public static void duplicateManagement(List<Lead> leadList){
         Map<String,Lead> masterLeadMap = RealTimeScenarioNo1Helper.getMasterLead(leadList);

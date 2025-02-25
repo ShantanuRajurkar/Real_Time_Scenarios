@@ -1,3 +1,10 @@
+/**
+ * @description       : 
+ * @author            : Shantanu Rajurkar
+ * @group             : 
+ * @last modified on  : 02-25-2025
+ * @last modified by  : Shantanu Rajurkar
+**/
 public class RealTimeScenarioNo1Helper {
     public static Map<String,Lead> getMasterLead(List<Lead> leadList){
         Set<String> emailSet = new Set<String>();
