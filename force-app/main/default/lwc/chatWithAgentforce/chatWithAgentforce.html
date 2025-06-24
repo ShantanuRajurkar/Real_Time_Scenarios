@@ -1,0 +1,64 @@
+<!--
+  @description       : 
+  @author            : Shantanu Rajurkar
+  @group             : 
+  @last modified on  : 06-22-2025
+  @last modified by  : Shantanu Rajurkar
+
+
+Problem Statement:- 
+
+-->
+
+<template>
+    <lightning-card title="Chant With AgentForce">
+        <section if:true={flag} role="log" class="scrollDown slds-chat slds-scrollable" style="height:400px;">
+            <ul class="slds-chat-list">
+                <template for:each={parsedConversation} for:item="line" for:index="index">
+                     <li if:true={line.isAgentforce} key={line.id} class="slds-chat-listitem slds-chat-listitem_inbound">
+                        <div class="slds-chat-message">
+                           <span aria-hidden="true" class="slds-avatar slds-avatar_circle slds-chat-avatar">
+                                <abbr class="slds-avatar__initials slds-avatar__initials_inverse" title="MVSales Agent">
+                                    <lightning-icon
+                                        icon-name="standard:messaging_conversation"
+                                        alternative-text="Agentforce"
+                                        size="medium">
+                                    </lightning-icon>
+                                </abbr>                  
+                            </span>
+                           <div class="slds-chat-message__body">
+                              <div class="slds-chat-message__text slds-chat-message__text_inbound">
+                                 <span>
+                                    <lightning-formatted-rich-text value={line.text}></lightning-formatted-rich-text>
+                                 </span>
+                              </div>
+                              <div class="slds-chat-message__meta" aria-label="said Andy Martinez at 5:29 PM"></div>
+                           </div>
+                        </div>
+                     </li>
+                    <li if:true={line.isUser} key={line.id} class="slds-chat-listitem slds-chat-listitem_outbound">
+                        <div class="slds-chat-message">
+                           <div class="slds-chat-message__body">
+                              <div class="slds-chat-message__text slds-chat-message__text_outbound">
+                                 <span>
+                                    <lightning-formatted-rich-text value={line.text}></lightning-formatted-rich-text>
+                                 </span>
+                              </div>
+                              <div class="slds-chat-message__meta" aria-label="said Amber Cann at 5:23 PM">{name}</div>
+                           </div>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+         </section>
+         <div class="slds-m-around_small">
+               <p>
+                  <lightning-input class="enter-key" type="text" placeholder="Type your Message here..." label="Send a Message" variant="label-hidden" value={userInput} onchange={handleInputChange}></lightning-input>
+               </p>
+               
+               <p class="slds-m-top_medium">
+                  <lightning-button label="Send" variant="brand" onclick={handleSendMessage}></lightning-button>
+               </p>               
+            </div>
+    </lightning-card>
+</template>
